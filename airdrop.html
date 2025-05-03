@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airdrop Check-in Tracker</title>
+    <link rel="stylesheet" href="airdropstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 5C14.5 5 10 9.5 10 15C10 20.5 14.5 25 20 25C25.5 25 30 20.5 30 15C30 9.5 25.5 5 20 5Z" fill="#4CAF50" fill-opacity="0.2"/>
+                    <path d="M20 3C20.8284 3 21.5 3.67157 21.5 4.5V6.5C21.5 7.32843 20.8284 8 20 8C19.1716 8 18.5 7.32843 18.5 6.5V4.5C18.5 3.67157 19.1716 3 20 3Z" fill="#4CAF50"/>
+                    <path d="M15 15L18 18L25 11" stroke="#4CAF50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 20C10 20 15 25 20 30C25 25 30 20 30 20" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 30V35" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1>Airdrop Check-in</h1>
+            </div>
+            <div class="date-display">
+                <span id="current-date"></span>
+                <span id="time-remaining"></span>
+            </div>
+        </header>
+
+        <main>
+            <div class="task-controls">
+                <div class="task-input-group">
+                    <select id="task-type">
+                        <option value="title">Airdrop Title</option>
+                        <option value="subtask">Subtask</option>
+                    </select>
+                    <input type="text" id="new-task" placeholder="Add new airdrop or subtask...">
+                </div>
+                <button id="add-task-btn"><i class="fas fa-plus"></i> Add</button>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="tasks">Tasks</button>
+                <button class="tab-btn" data-tab="history">History</button>
+            </div>
+
+            <div class="tab-content active" id="tasks-tab">
+                <div class="task-list" id="task-list">
+                    <!-- Tasks will be added here dynamically -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="history-tab">
+                <div class="history-controls">
+                    <button id="prev-day"><i class="fas fa-chevron-left"></i></button>
+                    <span id="history-date">Today</span>
+                    <button id="next-day"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="history-list" id="history-list">
+                    <!-- History will be added here dynamically -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <button id="clear-completed-btn">Clear Completed</button>
+            <button id="reset-all-btn">Reset All</button>
+        </footer>
+    </div>
+
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content">
+            <h2>Confirm Action</h2>
+            <p id="modal-message"></p>
+            <div class="modal-buttons">
+                <button id="modal-cancel">Cancel</button>
+                <button id="modal-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="airdropscript.js"></script>
+</body>
+</html>
